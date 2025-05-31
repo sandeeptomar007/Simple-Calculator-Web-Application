@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #5288d9; /* Light gray background */
+        }
+        /* Custom button styles for better interaction */
+        .calc-button {
+            @apply p-4 rounded-lg font-semibold text-2xl transition duration-200 ease-in-out transform active:scale-95;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .calc-button.number {
+            @apply bg-gray-200 hover:bg-gray-300 text-gray-800;
+        }
+        .calc-button.operator {
+            @apply bg-blue-500 hover:bg-blue-600 text-white;
+        }
+        .calc-button.equals {
+            @apply bg-green-500 hover:bg-green-600 text-white;
+        }
+        .calc-button.clear {
+            @apply bg-red-500 hover:bg-red-600 text-white;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg w-full max-w-sm">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Calculator</h1>
+
+        <div class="bg-gray-800 text-white text-right p-4 rounded-lg mb-6 shadow-inner">
+            <div id="previousOperandDisplay" class="text-xl text-gray-400 h-6 overflow-hidden"></div>
+            <div id="currentOperandDisplay" class="text-4xl font-bold h-10 overflow-hidden">0</div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-3">
+            <button class="calc-button clear col-span-2" data-action="clear">AC</button>
+            <button class="calc-button operator" data-action="delete">DEL</button>
+            <button class="calc-button operator" data-action="divide">÷</button>
+
+            <button class="calc-button number" data-number="7">7</button>
+            <button class="calc-button number" data-number="8">8</button>
+            <button class="calc-button number" data-number="9">9</button>
+            <button class="calc-button operator" data-action="multiply">×</button>
+
+            <button class="calc-button number" data-number="4">4</button>
+            <button class="calc-button number" data-number="5">5</button>
+            <button class="calc-button number" data-number="6">6</button>
+            <button class="calc-button operator" data-action="subtract">-</button>
+
+            <button class="calc-button number" data-number="1">1</button>
+            <button class="calc-button number" data-number="2">2</button>
+            <button class="calc-button number" data-number="3">3</button>
+            <button class="calc-button operator" data-action="add">+</button>
+
+            <button class="calc-button number col-span-2" data-number="0">0</button>
+            <button class="calc-button number" data-number=".">.</button>
+            <button class="calc-button equals" data-action="equals">=</button>
+        </div>
+    </div>
+
+    <script src="script.js"> </script>
+    
+</body>
+</html>
